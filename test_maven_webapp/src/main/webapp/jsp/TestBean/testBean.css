@@ -1,0 +1,14 @@
+@charset "UTF-8";
+.left{
+	border:1px solid red;
+	align:left;
+	color:red;
+	text-align: right;
+}
+
+.right{
+	border:1px solid blue;
+	align:right;
+	color:blue;
+	text-align: left;
+}

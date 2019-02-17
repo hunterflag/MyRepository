@@ -1,0 +1,13 @@
+2019-02-09 20:42:50 WARN  TestLog4j:14 - should Show Message for warn
+2019-02-09 20:42:50 ERROR TestLog4j:15 - should Show Message for error
+2019-02-09 20:42:50 FATAL TestLog4j:16 - should Show Message for fatal
+2019-02-09 20:45:05 WARN  TestLog4j:14 - should Show Message for warn
+2019-02-09 20:45:05 ERROR TestLog4j:15 - should Show Message for error
+2019-02-09 20:45:05 FATAL TestLog4j:16 - should Show Message for fatal
+2019-02-09 23:11:01 WARN  TestLog4j:19 - should Show Message for warn
+2019-02-09 23:11:01 ERROR TestLog4j:20 - should Show Message for error
+2019-02-09 23:11:01 FATAL TestLog4j:21 - should Show Message for fatal
+2019-02-09 23:11:01 INFO  x:24 - x should Show Message for info
+2019-02-09 23:11:01 WARN  x:25 - x should Show Message for warn
+2019-02-09 23:11:01 ERROR y:26 - xy should Show Message for error
+2019-02-09 23:11:01 FATAL y:27 - xy should Show Message for fatal
