@@ -1,7 +1,7 @@
 /**
  * 
  */
-alert("index.js start!");
+//alert("index.js start!");
 
 $(function() {
 	$("#menu").menu();
