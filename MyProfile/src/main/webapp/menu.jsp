@@ -17,7 +17,7 @@
 </head>
 <body>
 	<ul id="menu">
-		<li><div><img alt="回頂" src="icon/md-airplane.svg" class="icon"></div></li>
+		<li><div><a href="/hello"><img alt="回頂" src="icon/md-airplane.svg" class="icon"></a></div></li>
 		<li><div><img alt="主選單" src="icon/md-menu.svg" class="icon"></div>
 			<ul>
 				<li><div>登入</div></li>
@@ -34,7 +34,7 @@
 						<li><div>收藏</div></li>
 					</ul></li>
 			</ul></li>
-		<li><div><img alt="設定" src="icon/md-settings.svg" class="icon"></div></li>
+		<li><div><a href="./SayHello.do"><img alt="設定" src="icon/md-settings.svg" class="icon"></a></div></li>
 	</ul>
 
 </body>
