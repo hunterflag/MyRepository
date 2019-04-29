@@ -32,9 +32,5 @@
 %>
 	</table>
 
-<hr/>
-已選購的商品:<br/>
-<div id="areaShowShoppingCart"></div>
-<%-- <jsp:include page="showShoppingCart.jsp"/> --%>
 </body>
 </html>
