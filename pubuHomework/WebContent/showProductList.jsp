@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="js/showProductList.js"></script>
+<!-- <script type="text/javascript" src="js/showShoppingCart.js"></script> -->
 <title>商品</title>
 </head>
 <body>
@@ -31,5 +32,9 @@
 %>
 	</table>
 
+<hr/>
+已選購的商品:<br/>
+<div id="areaShowShoppingCart"></div>
+<%-- <jsp:include page="showShoppingCart.jsp"/> --%>
 </body>
 </html>

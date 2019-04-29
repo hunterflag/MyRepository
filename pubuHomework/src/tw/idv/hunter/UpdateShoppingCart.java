@@ -36,12 +36,13 @@ public class UpdateShoppingCart extends HttpServlet {
 			conn = DriverManager.getConnection(connUrl);
 			
 			//開啟購物車, 更新紀錄
-			String delStmt = "UPDATE shopping_carts SET sc_number=? WHERE ctm_id=? AND pd_id=?;"; 
-			PreparedStatement pstmt = conn.prepareStatement(delStmt);
+			String updStmt = "UPDATE shopping_carts SET sc_number=? WHERE ctm_id=? AND pd_id=?;"; 
+			PreparedStatement pstmt = conn.prepareStatement(updStmt);
 			pstmt.setInt(1, sc_number);
 			pstmt.setInt(2, ctm_id);
 			pstmt.setInt(3, pd_id);
 			int rs = pstmt.executeUpdate();
+			System.out.println("updateShoppingCart: " + rs);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
