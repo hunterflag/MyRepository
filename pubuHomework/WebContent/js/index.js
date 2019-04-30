@@ -8,13 +8,13 @@ $(document).ready(function(){
 	});
 	
 	$("#btnLogin").click(function(){
+		window.open('login.jsp');
 		todo("btnLogin");
-		window.open("login.jsp");
 	});
 	
 	$("#btnLogout").click(function(){
-		todo("btnLogout");
-		window.open("doLogout");
+		todo('btnLogout');
+		window.open('Logout.do');
 	});
 	
 	$("#btnShowProductList").click(function(){

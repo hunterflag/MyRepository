@@ -8,8 +8,8 @@
 <!-- <script src="http://code.jquery.com/jquery-1.10.2.js"></script> -->
 <!-- <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script> -->
 <!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script> -->
-<script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="js/DevTools.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 <title>測試首頁</title>
 </head>
 <body>
@@ -31,18 +31,16 @@
 		 登入者: ${loginName}<br/> 
 	</div>
 	
-<!-- 	
-	<script type="text/javascript"> 
-		$(function() {
-			$("#btnQueryLogin").click(function(){
-				console.log("btnQueryLogin");
+<!-- 	<script type="text/javascript">  -->
+<!-- // 		$(function() { -->
+<!-- // 			$("#btnQueryLogin").click(function(){ -->
+<!-- // 				console.log("btnQueryLogin"); -->
 <%-- 				var logger = '<%=session.getAttribute("loginName")%>'; --%>
-				alert("登入者是:" + logger);				
-			});
-			console.log("index.jsp Loaded...");
-		});
+<!-- // 				alert("登入者是:" + logger);				 -->
+<!-- // 			}); -->
+<!-- // 			console.log("index.jsp Loaded..."); -->
+<!-- // 		}); -->
 		
-	</script>
--->
+<!-- 	</script> -->
 </body>
 </html>

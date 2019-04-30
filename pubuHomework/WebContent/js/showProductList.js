@@ -8,12 +8,13 @@ $(document).ready(function(){
 });
 
 function addToShoppingCart(pd_id, pd_price){
-	var urlString = "doAddShoppingCart?pd_id=" + pd_id + "&pd_price=" + pd_price;
+	var urlString = "AddShoppingCart.do?pd_id=" + pd_id + "&pd_price=" + pd_price;
 	$.get(urlString, function(data, status){
 		$.get("showShoppingCart.jsp", function(data, status){
 			if(status == "success"){
-				$("#areaShowShoppingCart").html(data);
-				console.log(data);
+				location.reload();
+//				$("#areaShowShoppingCart").html(data);
+//				console.log(data);
 			}
 		});		
 	});

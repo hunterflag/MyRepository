@@ -2,7 +2,6 @@ package tw.idv.hunter;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -13,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet(name = "doUpdateShoppingCart", urlPatterns = { "/doUpdateShoppingCart" })
+@WebServlet(name = "UpdateShoppingCart.do", urlPatterns = { "/UpdateShoppingCart.do" })
 public class UpdateShoppingCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -31,9 +30,10 @@ public class UpdateShoppingCart extends HttpServlet {
 		
 		Connection conn = null;
 		try {
-			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
-							+"?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-			conn = DriverManager.getConnection(connUrl);
+//			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
+//							+"?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+//			conn = DriverManager.getConnection(connUrl);
+			conn = ConnectionFactory.getConnection();
 			
 			//開啟購物車, 更新紀錄
 			String updStmt = "UPDATE shopping_carts SET sc_number=? WHERE ctm_id=? AND pd_id=?;"; 

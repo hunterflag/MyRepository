@@ -28,3 +28,18 @@ function removeFromShoppingCart(pd_id){
 		}
 	});
 }
+
+function updateShoppingCart(ctm_id, pd_id){
+	var urlString = "UpdateShoppingCart.do"
+	$.post(urlString, 
+		  { "pd_id": pd_id,
+		    "ctm_id": ctm_id,
+	  	    "sc_number": $("#sc_number").val()},
+  	  	  function(data, status){
+	  		  if (status == "success"){
+	  			  todo(data);
+	  			  location.reload();
+	  		  }
+	  	  }
+    );
+}

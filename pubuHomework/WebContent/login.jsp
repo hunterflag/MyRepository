@@ -7,7 +7,7 @@
 <title>登入</title>
 </head>
 <body>
-	<form action="doLoginCheck" method="post">
+	<form action="Login.do" method="post" target="_parent">
 		帳號:<input name="loginAcc" type="text" value="Tester2">
 		密碼:<input name="loginPwd" type="password" value="123456">
 		<input type="submit" value="登入">
