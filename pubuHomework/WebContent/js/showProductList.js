@@ -20,4 +20,3 @@ function addToShoppingCart(pd_id, pd_price){
 	});
 
 }
-	
