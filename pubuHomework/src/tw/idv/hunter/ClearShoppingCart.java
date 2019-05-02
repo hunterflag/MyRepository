@@ -1,6 +1,7 @@
 package tw.idv.hunter;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -17,7 +18,8 @@ public class ClearShoppingCart extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	PrintWriter out = response.getWriter();
+	out.append("Served at: ").append(request.getContextPath());
 
 		//取得客戶ID
 		HttpSession session = request.getSession();
