@@ -31,7 +31,7 @@ public class ClearShoppingCart extends HttpServlet {
 			String delStmt = "DELETE FROM shopping_carts WHERE ctm_id=?;"; 
 			PreparedStatement pstmt = conn.prepareStatement(delStmt);
 			pstmt.setInt(1, ctm_id);
-			int rs = pstmt.executeUpdate();
+			pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
