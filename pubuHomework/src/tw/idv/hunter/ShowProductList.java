@@ -26,8 +26,9 @@ public class ShowProductList extends HttpServlet {
 		Connection conn = null;
 		
 		try {
-			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-			conn = DriverManager.getConnection(connUrl);
+//			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+//			conn = DriverManager.getConnection(connUrl);
+			conn = ConnectionFactory.getConnection();
 			
 			//取得商品清單
 			String qryStmt = "SELECT * FROM products ;";

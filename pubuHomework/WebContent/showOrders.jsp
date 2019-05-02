@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page import="java.sql.*, javax.sql.*, javax.servlet.http.*" %>
+<%@ page import="java.sql.*, javax.sql.*, javax.servlet.http.*, tw.idv.hunter.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +18,14 @@
 <%
 	//取得客戶ID
  	int ctm_id = Integer.valueOf(session.getAttribute("loginId").toString());
-
+/* 
 	String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
 					+"?user=root&password=123456"
 					+"&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
 	Connection conn = DriverManager.getConnection(connUrl);
-	
+ */	
+ 	
+	Connection conn = ConnectionFactory.getConnection();
 	//取出訂單
 	String qryStmt = "SELECT od.od_id, ctm.ctm_account, od.od_time, od.od_total_price, od.od_state, od.ctm_id "
 				   + "FROM orders AS od " 
@@ -35,8 +37,9 @@
 	ResultSet rs = pstmt.executeQuery();
 	
 	while (rs.next()) {
-// 		out.println("<TR onclick='showOrderDetails(" + rs.getString("od.od_id") + ");' " 
+// 		out.println("<TR onclick='showOrderDetails(" + rs.getString("od.od_id") + ");' "
 		out.println("<TR onmouseover='showOrderDetails(" + rs.getString("od.od_id") + ");' " 
+// 		out.println("<TR onmouseover='getOrderDetailsToJson(" + rs.getString("od.od_id") + ");' " 
 					+"class='record' title='點選以顯示訂購明細' >");
 		out.println("<TD>" + rs.getString("od.od_id"));
 		out.println("<TD>" + rs.getString("ctm.ctm_account"));

@@ -16,12 +16,12 @@
 <%
 	int od_id = Integer.valueOf(request.getParameter("od_id"));
  	int ctm_id = Integer.valueOf(session.getAttribute("loginId").toString());
-/* 
-	String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
-					+"?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-	Connection conn = DriverManager.getConnection(connUrl);
- */	
+
+// 	String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
+// 					+"?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+// 	Connection conn = DriverManager.getConnection(connUrl);
 	Connection conn = ConnectionFactory.getConnection();
+	
 	String qryStmt = "SELECT oddt.oddt_id, od.od_id, ctm.ctm_account, pd.pd_name, pd.pd_price, oddt.oddt_price, oddt.oddt_number "
 // 	String qryStmt = "SELECT  *"
 				   + "FROM order_details AS oddt " 

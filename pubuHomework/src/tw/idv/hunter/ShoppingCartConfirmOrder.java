@@ -28,12 +28,14 @@ public class ShoppingCartConfirmOrder extends HttpServlet {
 		//TODO 先檢查是否已登入?
 		Connection conn = null;
 		try {
-			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
-							+"?user=root"
-							+"&password=123456"
-							+"&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-			conn = DriverManager.getConnection(connUrl);
-			
+//			
+//			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
+//							+"?user=root"
+//							+"&password=123456"
+//							+"&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+//			conn = DriverManager.getConnection(connUrl);
+//			
+			conn = ConnectionFactory.getConnection();
 			//建立訂單 1: 先建立訂單編號
 			//取得新增訂單的 oid
 			int od_id=0;

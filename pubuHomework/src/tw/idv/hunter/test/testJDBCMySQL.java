@@ -6,13 +6,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import tw.idv.hunter.ConnectionFactory;
+
 public class testJDBCMySQL {
 
 	public static void main(String[] args) {
 		Connection conn = null;
 		try {
-			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-			conn = DriverManager.getConnection(connUrl);
+//			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+//			conn = DriverManager.getConnection(connUrl);
+			conn = ConnectionFactory.getConnection();
+			
 			String qryStmt = "SELECT * FROM customers;";
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(qryStmt);

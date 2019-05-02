@@ -28,9 +28,10 @@ public class ClearShoppingCart extends HttpServlet {
 		Connection conn = null;
 		
 		try {
-			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
-							+"?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-			conn = DriverManager.getConnection(connUrl);
+//			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
+//							+"?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
+//			conn = DriverManager.getConnection(connUrl);
+			conn = ConnectionFactory.getConnection();
 			
 			String delStmt = "DELETE FROM shopping_carts WHERE ctm_id=?;"; 
 			PreparedStatement pstmt = conn.prepareStatement(delStmt);
