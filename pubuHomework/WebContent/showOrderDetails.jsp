@@ -16,14 +16,9 @@
 <%
 	int od_id = Integer.valueOf(request.getParameter("od_id"));
  	int ctm_id = Integer.valueOf(session.getAttribute("loginId").toString());
-/* 
-	String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
-					+"?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-	Connection conn = DriverManager.getConnection(connUrl);
- */	
-	Connection conn = ConnectionFactory.getConnection();
+
+ 	Connection conn = ConnectionFactory.getConnection();
 	String qryStmt = "SELECT oddt.oddt_id, od.od_id, ctm.ctm_account, pd.pd_name, pd.pd_price, oddt.oddt_price, oddt.oddt_number "
-// 	String qryStmt = "SELECT  *"
 				   + "FROM order_details AS oddt " 
 		  		   + "JOIN products AS pd ON oddt.pd_id = pd.pd_id "
 		  		   + "JOIN orders AS od ON od.od_id = oddt.od_id " 

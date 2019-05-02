@@ -2,7 +2,6 @@ package tw.idv.hunter;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,21 +24,11 @@ public class ShoppingCartConfirmOrder extends HttpServlet {
 		HttpSession session = request.getSession();
 		int ctm_id = Integer.valueOf(session.getAttribute("loginId").toString());
 		
-		//TODO 先檢查是否已登入?
 		Connection conn = null;
 		try {
-//			
-//			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
-//							+"?user=root"
-//							+"&password=123456"
-//							+"&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-//			conn = DriverManager.getConnection(connUrl);
-//			
 			conn = ConnectionFactory.getConnection();
-			//建立訂單 1: 先建立訂單編號
-			//取得新增訂單的 oid
+			//建立訂單 1: 先建立訂單編號、取得新增訂單的 oid
 			int od_id=0;
-//			String insStmt = "INSERT INTO orders(ctm_id, od_total_price, od_state) VALUES (?, 0, 'open');"; 
 			String insStmt = "INSERT INTO orders(ctm_id) VALUES (?);"; 
 			PreparedStatement ins_stmt = conn.prepareStatement(insStmt, PreparedStatement.RETURN_GENERATED_KEYS);
 			ins_stmt.setInt(1, ctm_id);
@@ -48,7 +37,6 @@ public class ShoppingCartConfirmOrder extends HttpServlet {
 			if(rs_od.next()) {
 				od_id = rs_od.getInt(1);
 			}
-//			System.out.println("od_id=" + od_id + "\t 若為 0, 表未取得!");
 
 			//取出購物車內容
 			String qryStmt = "SELECT * FROM shopping_carts WHERE ctm_id=?;"; 
@@ -56,7 +44,7 @@ public class ShoppingCartConfirmOrder extends HttpServlet {
 			pstmt.setInt(1, ctm_id);
 			ResultSet rs_sc = pstmt.executeQuery();
 
-			//建立訂購明細表 & 計算總價
+			//依購物車內容, 建立訂購明細表 & 計算總價
 			String oddtInsStmt = "INSERT INTO order_details(pd_id, oddt_price, oddt_number, od_id) " 
 								+ "VALUES (?, ?, ?, ?);";
 			PreparedStatement oddt_insStmt = conn.prepareStatement(oddtInsStmt);
@@ -72,8 +60,7 @@ public class ShoppingCartConfirmOrder extends HttpServlet {
 			}
 			System.out.println(total_price);
 			
-			//建立訂單2、更新總價
-
+			//建立訂單2：更新總價
 			String oddtUpdStmt = "UPDATE orders "
 								+"SET od_total_price=?, od_state=? " 
 								+" WHERE od_id=? ;"; 
@@ -89,7 +76,6 @@ public class ShoppingCartConfirmOrder extends HttpServlet {
 			del_Stmt.setInt(1, ctm_id);
 			del_Stmt.executeUpdate();
 			//XXX 直接呼叫已經寫好的 ClearShoppingCart 呢?
-			
 			
 		}catch(SQLException e) {
 			e.printStackTrace();

@@ -18,12 +18,6 @@
 <%
 	//取得客戶ID
  	int ctm_id = Integer.valueOf(session.getAttribute("loginId").toString());
-/* 
-	String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
-					+"?user=root&password=123456"
-					+"&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-	Connection conn = DriverManager.getConnection(connUrl);
- */	
  	
 	Connection conn = ConnectionFactory.getConnection();
 	//取出訂單
@@ -38,8 +32,9 @@
 	
 	while (rs.next()) {
 // 		out.println("<TR onclick='showOrderDetails(" + rs.getString("od.od_id") + ");' "
-		out.println("<TR onmouseover='showOrderDetails(" + rs.getString("od.od_id") + ");' " 
-// 		out.println("<TR onmouseover='getOrderDetailsToJson(" + rs.getString("od.od_id") + ");' " 
+// 		out.println("<TR onmouseover='showOrderDetails(" + rs.getString("od.od_id") + ");' " 
+// 		out.println("<TR onmouseover='getOrderDetailsToJson(" + rs.getString("od.od_id") + ");' "
+		out.println("<TR onclick='getOrderDetails(" + rs.getString("od.od_id") + ");' "
 					+"class='record' title='點選以顯示訂購明細' >");
 		out.println("<TD>" + rs.getString("od.od_id"));
 		out.println("<TD>" + rs.getString("ctm.ctm_account"));

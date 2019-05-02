@@ -36,14 +36,12 @@ public class AddShoppingCart extends HttpServlet {
 		
 		int ctm_id = Integer.valueOf(session.getAttribute("loginId").toString());
 
-//			System.out.printf("ctm_id: %d, pd_id: %d\n", ctm_id, pd_id);
-		
 		//取得 購物車
 		Connection conn = null;
-		
 		try {
 			conn = ConnectionFactory.getConnection();
-			//檢查要加的商品是否已經在該員的購物車內? 若否, 則加入; 若是則不再加入!
+
+			//檢查要加的商品是否已經在該員的購物車內? 若否, 則加入; 若是, 則不再加入!
 			String qryStmt = "SELECT * FROM shopping_carts WHERE ctm_id=? AND pd_id=?;";
 			PreparedStatement stmt = conn.prepareStatement(qryStmt);
 			stmt.setInt(1, ctm_id);

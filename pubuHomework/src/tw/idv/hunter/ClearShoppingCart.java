@@ -2,7 +2,6 @@ package tw.idv.hunter;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -26,11 +25,7 @@ public class ClearShoppingCart extends HttpServlet {
 		
 		//開啟購物車資料表, 刪除紀錄
 		Connection conn = null;
-		
 		try {
-//			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise"
-//							+"?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-//			conn = DriverManager.getConnection(connUrl);
 			conn = ConnectionFactory.getConnection();
 			
 			String delStmt = "DELETE FROM shopping_carts WHERE ctm_id=?;"; 

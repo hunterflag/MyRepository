@@ -3,7 +3,6 @@ package tw.idv.hunter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,10 +23,7 @@ public class ShowProductList extends HttpServlet {
 //		out.append("Served at: ").append(request.getContextPath());
 
 		Connection conn = null;
-		
 		try {
-//			String connUrl = "jdbc:mysql://localhost:3306/pubu_exercise?user=root&password=123456&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC";
-//			conn = DriverManager.getConnection(connUrl);
 			conn = ConnectionFactory.getConnection();
 			
 			//取得商品清單
