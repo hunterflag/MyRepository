@@ -1,6 +1,7 @@
 package tw.idv.hunter;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,12 +28,16 @@ public class GetOrderDetailsByMaps extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-//		PrintWriter out = response.getWriter();
+		PrintWriter out = response.getWriter();
 //		out.append("Served at: ").append(request.getContextPath());
 
 		//未登入就不用做了
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginId") == null) return;
+		System.out.println(session.getAttribute("loginId"));
+		if (session.getAttribute("loginId") == null) {
+			out.write("尚未登入");
+			return;
+		}
 
 		//1.從前端取得訂單編號
 		String str_od_id = request.getParameter("od_id");

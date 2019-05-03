@@ -13,6 +13,5 @@
 		<input type="submit" value="登入">
 		<input type="reset" value="重填">
 	</form>
-<!-- 	TODO 提出登入後, 顯示訊息,停留 3 秒, 自動關掉訊息, 回到首頁  		 -->
 </body>
 </html>

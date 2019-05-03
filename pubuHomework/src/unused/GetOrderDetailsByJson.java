@@ -1,4 +1,4 @@
-package tw.idv.hunter;
+package unused;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,6 +16,8 @@ import javax.servlet.http.HttpSession;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import tw.idv.hunter.ConnectionFactory;
 
 @WebServlet(urlPatterns= {"/getOrderDetailsToJson.do"})
 public class GetOrderDetailsByJson extends HttpServlet {

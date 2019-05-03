@@ -12,7 +12,8 @@ $(document).ready(function(){
 		var urlString = "doShoppingCartConfirmOrder";
 		$.get(urlString, function(data, status){
 			if (status == "success"){
-				location.reload();
+				alert("訂單成立!");
+				window.close();
 			}
 		});
 	});

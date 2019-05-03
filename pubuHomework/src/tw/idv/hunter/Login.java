@@ -54,24 +54,27 @@ public class Login extends HttpServlet {
 			if (rs.next()) {//有此帳號
 				if (loginPwd.equals(rs.getString("ctm_password"))) {
 					out.write(loginAcc + "登入成功! " + "<br/>");
+					out.write("<button type='button' onclick='window.close()' >關閉</button>"
+							+ "<script type='text/javascript'>"
+							+ "self.opener.location.reload();"
+							+ "setTimeout('window.close()', 2000);"
+							+ "</script>");
 					HttpSession session = request.getSession();
 					session.setAttribute("loginName", loginAcc);
 					session.setAttribute("loginId", rs.getInt("ctm_id"));
-					out.write("LoginOK");
 				}else {
-					out.write(loginAcc + "登入失敗! " + "<br/>");
-					out.write("輸入: " + loginPwd + "<br/>");
+					out.write("<script type='text/javascript'>"
+							+ "alert('" + loginAcc + " 登入失敗!" + loginPwd + ", 重新輸入! 登記: " + rs.getString("ctm_password") + "');"
+							+ "window.open('login.jsp', '_self');"
+							+ "</script>");
 				}
-				out.write("登記: " + rs.getString("ctm_password") + "<br/>");
 			} else {	//無此帳號
-				out.write("沒有帳號: " + loginAcc + "<br/>");
+				out.write("<script type='text/javascript'>"
+						+ "alert('沒有帳號: " + loginAcc + " , 重新輸入!');"
+						+ "window.open('login.jsp', '_self');"
+						+ "</script>");
+				out.write(" " + loginAcc + "<br/>");
 			}
-			out.write("<button type='button' onclick='window.close()' >關閉</button>"
-					+ "<script type='text/javascript'>"
-					+ "self.opener.location.reload();"
-					+ "setTimeout('window.close()', 2000);"
-					+ "</script>");
-			
 		}catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
