@@ -75,7 +75,6 @@ public class ShoppingCartConfirmOrder extends HttpServlet {
 			PreparedStatement del_Stmt = conn.prepareStatement(delStmt);
 			del_Stmt.setInt(1, ctm_id);
 			del_Stmt.executeUpdate();
-			//XXX 直接呼叫已經寫好的 ClearShoppingCart 呢?
 			
 		}catch(SQLException e) {
 			e.printStackTrace();

@@ -1,55 +1,67 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+						http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>pubuExerciseHS</groupId>
-	<artifactId>pubuExerciseHS</artifactId>
+	<groupId>pubuExercise</groupId>
+	<artifactId>pubuExercise</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	
+	<properties>
+		<compiler.version>1.8</compiler.version>
+		<junit.version>4.12</junit.version>
+		<springframework.version>4.0.6.RELEASE</springframework.version>
+		<hibernate.version>5.4.2.Final</hibernate.version>
+		<mysql.version>8.0.13</mysql.version>
+		<servlet.version>3.1.0</servlet.version>
+		<servlet.jsp.version>2.3.1</servlet.jsp.version>
+	</properties>
+	
 	<dependencies>
 		<!-- Servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>${servlet.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- Servlet JSP -->
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>javax.servlet.jsp-api</artifactId>
-			<version>2.3.1</version>
+			<version>${servlet.jsp.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<!-- junit -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<!-- hibernate/hibernate-core -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.4.2.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+
+		<!-- 資料庫 -->
+		<!-- mysql -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.13</version>
+			<version>${mysql.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
+		<!-- c3p0 -->
 		<dependency>
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
 			<version>0.9.1.2</version>
 		</dependency>
-
-
 
 	</dependencies>
 	<build>
@@ -59,8 +71,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>${compiler.version}</source>
+					<target>${compiler.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>

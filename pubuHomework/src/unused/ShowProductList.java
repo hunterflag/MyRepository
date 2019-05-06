@@ -1,4 +1,4 @@
-package tw.idv.hunter;
+package unused;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "doShowProductList", urlPatterns = { "/doShowProductList" })
+import tw.idv.hunter.ConnectionFactory;
+
+@WebServlet(name = "doShowProductList", urlPatterns = { "/ShowProductList.do" })
 public class ShowProductList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
